@@ -1,0 +1,124 @@
+/* Fundo com um gradiente moderno e suave */
+.pagina-login {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  padding: 20px;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* Cartão com cantos mais arredondados e sombra elegante */
+.formulario-login {
+  background-color: white;
+  width: 100%;
+  max-width: 420px;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Títulos com pesos e cores refinadas */
+.formulario-login h1 {
+  color: #1e3a5f;
+  font-size: 26px;
+  font-weight: 700;
+  text-align: center;
+  margin: 0 0 5px 0;
+}
+
+.formulario-login h2 {
+  color: #64748b;
+  font-size: 16px;
+  font-weight: 400;
+  text-align: center;
+  margin: 0 0 30px 0;
+}
+
+/* 
+ * Correção do alinhamento dos campos:
+ * Força o label a ficar em cima e o input embaixo, ocupando 100%
+ */
+.formulario-login .campo-texto {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.formulario-login label {
+  font-size: 14px;
+  color: #334155;
+  margin-bottom: 8px;
+  font-weight: 500;
+  text-align: left;
+}
+
+/* Estilo premium para a caixa de digitar */
+.formulario-login input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 15px;
+  color: #1e293b;
+  background-color: #f8fafc;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+/* Efeito azul ao clicar no campo */
+.formulario-login input:focus {
+  outline: none;
+  border-color: #1e3a5f;
+  background-color: white;
+  box-shadow: 0 0 0 3px rgba(30, 58, 95, 0.15);
+}
+
+.formulario-login button {
+  width: 100%;
+  margin-top: 30px;
+  padding: 14px;
+  background-color: #1e3a5f;
+  color: rgb(255, 255, 255);
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+.formulario-login button:hover {
+  background-color: #0357c5;
+}
+
+.formulario-login button:active {
+  transform: scale(0.98);
+}
+
+.pagina-login {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  /* Imagem de fundo com um filtro (gradient) escurecido por cima */
+  background-image: 
+    linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.7)),
+    url('https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=1920&auto=format&fit=crop');
+  
+  /* Garante que a imagem cobre a tela toda sem achatar */
+  background-size: cover;
+  /* Centraliza a parte mais importante da imagem */
+  background-position: center;
+  background-repeat: no-repeat;
+  
+  padding: 20px;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}

@@ -1,0 +1,90 @@
+import { useState, useEffect } from 'react'
+import { supabase } from '../supabase'
+import { useNavigate } from 'react-router-dom'
+import CampoTexto from '../components/CampoTexto'
+import Botao from '../components/Botao'
+import './Login.css'
+
+
+function Login() {
+    const [email, setEmail] = useState('')
+    const [senha, setSenha] = useState('')
+    const navegar = useNavigate()
+
+    const [alunos, setAlunos] = useState([])
+    const [carregando, setCarregando] = useState(true)
+    useEffect(() => {
+        async function buscarAlunos() {
+            const { data, error } = await supabase
+                .from('alunos')
+                .select('*')
+                .order('nome')
+            if (error) {
+                alert('Erro ao consultar alunos: ' + error.message)
+            } else {
+                setAlunos(data)
+            }
+            setCarregando(false)
+        }
+        buscarAlunos()
+    }, [])
+
+
+    //Testa o acesso à sessão do Supabase ao abrir o login
+    useEffect(() => {
+
+        async function testarConexao() {
+
+            const { data, error } = await supabase.auth.getSession()
+
+            if (error) {
+                console.log('Erro ao consultar o Supabase:', error.message)
+            } else {
+                console.log('Cliente Supabase inicializada!')
+                console.log('Sessão atual:', data.session)
+            }
+        }
+
+        testarConexao()
+
+    }, [])
+
+    async function entrar(evento) {
+        evento.preventDefault()
+
+        const { data, error } = await supabase.auth.signInWithPassword({
+            email: email, password: senha
+        })
+
+        if (error) {
+            alert('E-mail ou senha incorretos!')
+            return
+        }
+
+        navegar('/dashboard')
+    }
+
+    return (
+        <div className="pagina-login">
+            <form className="formulario-login" onSubmit={entrar}>
+                <h1>Sistema de Qualidade do Ensino</h1>
+                <h2>Entrar no sistema</h2>
+                <CampoTexto
+                    label="E-mail"
+                    tipo="text"
+                    value={email}
+                    onChange={(evento) => setEmail(evento.target.value)}
+                />
+                <CampoTexto
+                    label="Senha"
+                    tipo="password"
+                    value={senha}
+                    onChange={(evento) => setSenha(evento.target.value)}
+                />
+                <Botao type="submit">Entrar</Botao>
+            </form>
+        </div>
+    )
+}
+
+export default Login
